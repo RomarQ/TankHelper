@@ -1,0 +1,298 @@
+<GuiXml>
+    <Controls>
+        <TopLevelControl name="TankHelperTLW" mouseEnabled="true" movable="true" clampedToScreen="true" hidden="true">
+            <Dimensions x="256" y="64" />
+            <Anchor point="CENTER" relativeTo="GuiRoot" relativePoint="CENTER" />
+            
+            <OnMoveStop>
+                TankHelper.OnFrameMoveStop()
+            </OnMoveStop>
+            
+        </TopLevelControl>
+
+        <TopLevelControl name="SH_Reticle" clampedToScreen="true" hidden="true">
+	        <Dimensions x="150" y="50" />
+            <Anchor point="CENTER" relativeTo="GuiRoot" relativePoint="CENTER" offsetX="0" offsetY="-50" />
+            <Controls>
+                <Label name="$(parent)_Label" width="200" height="50" font="$(BOLD_FONT)|$(KB_54)|thick-outline" inheritAlpha="true" color="FF0000" wrapMode="TRUNCATE" verticalAlignment="CENTER" horizontalAlignment="CENTER">
+                    <Anchor point="CENTER" relativeTo="$(parent)" relativePoint="CENTER" />
+                </Label>
+            </Controls>
+        </TopLevelControl>
+
+
+        <Control name="TH_EffectRowTemplate" resizeToFitDescendents="true" mouseEnabled="true" virtual="true" >
+		
+			<Controls>
+
+				<Texture name="$(parent)Icon">
+					<Anchor point="LEFT" relativePoint="LEFT"/>
+					<Dimensions x="36" y="36"/>
+				</Texture>
+				
+				<Label name="$(parent)Name" font="$(BOLD_FONT)|$(KB_14)|thick-outline" horizontalAlignment="LEFT" verticalAlignment="CENTER">
+					<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="$(parent)Icon" />
+					<Dimensions x="170" y="36"/>
+				</Label>
+				
+				<Backdrop name="$(parent)GroupBar" edgeColor="00000000" centerColor="CC000099" hidden='true'>
+					<Anchor point="TOPLEFT" relativePoint="TOPLEFT" relativeTo="$(parent)Name"/>
+					<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMLEFT" relativeTo="$(parent)Name" />
+					<Dimensions x="50" y="36"/>
+					
+					<Edge edgeSize="1" />
+				</Backdrop>
+				
+				<Backdrop name="$(parent)PlayerBar" edgeColor="00000000" centerColor="f44250">
+					<Anchor point="TOPLEFT" relativePoint="TOPLEFT" relativeTo="$(parent)Name"/>
+					<Anchor point="BOTTOMLEFT" relativePoint="BOTTOMLEFT" relativeTo="$(parent)Name" />
+					<Dimensions x="50" y="36"/>
+                    
+					<Edge edgeSize="1" />
+				</Backdrop>
+
+                <Label name="$(parent)Uptime" font="$(BOLD_FONT)|$(KB_14)|thick-outline" horizontalAlignment="CENTER" verticalAlignment="CENTER">
+					<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="$(parent)Name"/>
+					<Dimensions x="70" y="36"/>
+				</Label>
+				
+				<Label name="$(parent)UptimePercentage" font="$(BOLD_FONT)|$(KB_24)|thick-outline" horizontalAlignment="CENTER" verticalAlignment="CENTER">
+					<Anchor point="LEFT" relativePoint="RIGHT" relativeTo="$(parent)Uptime"/>
+					<Dimensions x="70" y="36"/>
+				</Label>
+				
+                <Texture name="$(parent)Divider" tier="HIGH" textureFile="esoui/art/battlegrounds/battlegrounds_scoreboard_highlightstrip_green.dds">
+                    <Anchor relativePoint="BOTTOMLEFT" relativeTo="$(parent)Icon" point="TOPLEFT"/>
+                    <Dimensions x="460" y="12"/>
+                </Texture>
+
+			</Controls>
+			
+		</Control>
+
+		<Control name="TH_TargetRowTemplate" resizeToFitDescendents="true" mouseEnabled="true" virtual="true" >
+			<Controls>
+				<Button name="$(parent)Button" inherits="ZO_DefaultButton">
+					<Anchor point="CENTER" relativePoint="CENTER" />
+					<Dimensions x="300" y="32"/>
+				</Button>
+			</Controls>
+		</Control>
+
+
+		<!-- METRICS FRAME -->
+
+		<TopLevelControl name="TH_EffectsMetrics" clampedToScreen="true" mouseEnabled="true" movable="true">
+			<Anchor point="CENTER" relativeTo="GuiRoot" relativePoint="CENTER" />
+			<Dimensions x="859" y="710"/>
+
+			<Controls>
+
+				<!-- METRICS FRAME BOX BACKGROUND -->
+				<Backdrop name="$(parent)_BG" inherits="ZO_DefaultBackdrop">
+					<AnchorFill/>
+				</Backdrop>
+
+				<!-- TOP BACKGROUND -->
+				<Texture name="$(parent)_InfoTopBg" textureFile="esoui/art/campaign/overview_scoringbg_ebonheart_left.dds">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT"/>
+                    <Dimensions x="855" y="240"/>
+                </Texture>
+
+				<Texture name="$(parent)_InfoBottomBg" textureFile="esoui/art/campaign/overview_scoringbg_ebonheart_left.dds" textureCoordsRotation="3.14159265">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="2" offsetY="-145"/>
+                    <Dimensions x="855" y="270"/>
+                </Texture>
+
+				<!-- MIDDLE LEFT BACKGROUND -->
+				<Texture textureFile="esoui/art/battlegrounds/battlegrounds_scoreboardbg_purple.dds" color="41f4d9">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT"  offsetY="117"/>
+                    <Dimensions x="500" y="245"/>
+                </Texture>
+
+				<Texture textureFile="esoui/art/battlegrounds/battlegrounds_scoreboardbg_purple.dds" textureCoordsRotation="3.14159265" color="41f4d9">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="-62" offsetY="72"/>
+                    <Dimensions x="500" y="245"/>
+                </Texture>
+
+				<Texture textureFile="esoui/art/battlegrounds/battlegrounds_scoreboardbg_purple.dds">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT"  offsetY="117"/>
+                    <Dimensions x="500" y="245"/>
+                </Texture>
+
+				<Texture textureFile="esoui/art/battlegrounds/battlegrounds_scoreboardbg_purple.dds" textureCoordsRotation="3.14159265">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="-62" offsetY="72"/>
+                    <Dimensions x="500" y="245"/>
+                </Texture>
+
+				<!-- MIDDLE RIGHT BACKGROUND -->
+				<Texture textureFile="esoui/art/battlegrounds/battlegrounds_scoreboardbg_purple.dds">
+                    <Anchor point="TOPRIGHT" relativeTo="$(parent)" relativePoint="TOPRIGHT" offsetX="60" offsetY="117"/>
+                    <Dimensions x="500" y="245"/>
+                </Texture>
+
+				<Texture textureFile="esoui/art/battlegrounds/battlegrounds_scoreboardbg_purple.dds" textureCoordsRotation="3.14159265">
+                    <Anchor point="TOPRIGHT" relativeTo="$(parent)" relativePoint="TOPRIGHT" offsetX="-4" offsetY="72"/>
+                    <Dimensions x="500" y="245"/>
+                </Texture>
+
+				<Texture textureFile="esoui/art/battlegrounds/battlegrounds_scoreboardbg_purple.dds">
+                    <Anchor point="TOPRIGHT" relativeTo="$(parent)" relativePoint="TOPRIGHT" offsetX="60" offsetY="117"/>
+                    <Dimensions x="500" y="245"/>
+                </Texture>
+
+				<Texture textureFile="esoui/art/battlegrounds/battlegrounds_scoreboardbg_purple.dds" textureCoordsRotation="3.14159265">
+                    <Anchor point="TOPRIGHT" relativeTo="$(parent)" relativePoint="TOPRIGHT" offsetX="-4" offsetY="72"/>
+                    <Dimensions x="500" y="245"/>
+                </Texture>
+
+				<!-- BOTTOM LEFT BACKGROUND -->
+				<Texture textureFile="esoui/art/battlegrounds/battlegrounds_scoreboardbg_orange.dds">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetY="310"/>
+                    <Dimensions x="500" y="350"/>
+                </Texture>
+
+				<Texture textureFile="esoui/art/battlegrounds/battlegrounds_scoreboardbg_orange.dds" textureCoordsRotation="3.14159265">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="-60" offsetY="360"/>
+                    <Dimensions x="500" y="350"/>
+                </Texture>
+
+				<Texture textureFile="esoui/art/battlegrounds/battlegrounds_scoreboardbg_orange.dds">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetY="310"/>
+                    <Dimensions x="500" y="350"/>
+                </Texture>
+
+				<Texture textureFile="esoui/art/battlegrounds/battlegrounds_scoreboardbg_orange.dds" textureCoordsRotation="3.14159265">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="-60" offsetY="360"/>
+                    <Dimensions x="500" y="350"/>
+                </Texture>
+
+				<!-- BOTTOM RIGHT BACKGROUND -->
+				<Texture textureFile="esoui/art/battlegrounds/battlegrounds_scoreboardbg_green.dds">
+                    <Anchor point="TOPRIGHT" relativeTo="$(parent)" relativePoint="TOPRIGHT" offsetX="60" offsetY="310"/>
+                    <Dimensions x="500" y="350"/>
+                </Texture>
+
+				<Texture textureFile="esoui/art/battlegrounds/battlegrounds_scoreboardbg_green.dds" textureCoordsRotation="3.14159265">
+                    <Anchor point="TOPRIGHT" relativeTo="$(parent)" relativePoint="TOPRIGHT" offsetY="360"/>
+                    <Dimensions x="500" y="350"/>
+                </Texture>
+
+				<Texture textureFile="esoui/art/battlegrounds/battlegrounds_scoreboardbg_green.dds">
+                    <Anchor point="TOPRIGHT" relativeTo="$(parent)" relativePoint="TOPRIGHT" offsetX="60" offsetY="310"/>
+                    <Dimensions x="500" y="350"/>
+                </Texture>
+
+				<Texture textureFile="esoui/art/battlegrounds/battlegrounds_scoreboardbg_green.dds" textureCoordsRotation="3.14159265">
+                    <Anchor point="TOPRIGHT" relativeTo="$(parent)" relativePoint="TOPRIGHT" offsetY="360"/>
+                    <Dimensions x="500" y="350"/>
+                </Texture>
+    
+				<!-- NAVIGATION BUTTONS ( OPEN , SAVE, Delete ) -->
+				<Control name="$(parent)_NavigationTop" tier="HIGH" >
+					<Anchor point="TOPRIGHT" offsetY="10"/>
+					<Dimensions x="150" y="48"/>
+			
+					<Controls>
+
+						<Button name="$(parent)_Delete" verticalAlignment="CENTER">
+							<Anchor point="RIGHT" offsetX="-10"/>
+							<Dimensions x="36" y="36"/>
+
+							<Textures 
+								normal="TankHelper/icons/delete_up.dds" 
+								pressed="TankHelper/icons/delete_down.dds"
+								mouseOver="TankHelper/icons/delete_over.dds" 
+								disabled="TankHelper/icons/delete_disabled.dds"
+							/>
+
+							<OnClicked>
+								TankHelper.DeleteCombatLog()
+							</OnClicked>
+							
+						</Button>
+
+						<Button name="$(parent)_Save" verticalAlignment="CENTER">
+							<Anchor point="RIGHT" relativePoint="LEFT" relativeTo="$(parent)_Delete" offsetX="-10"/>
+							<Dimensions x="36" y="36"/>
+
+							<Textures 
+								normal="TankHelper/icons/save_up.dds" 
+								pressed="TankHelper/icons/save_down.dds"
+								mouseOver="TankHelper/icons/save_over.dds" 
+								disabled="TankHelper/icons/save_disabled.dds"
+							/>
+							
+						</Button>
+
+						<Button name="$(parent)_Open" verticalAlignment="CENTER">
+							<Anchor point="RIGHT" relativePoint="LEFT" relativeTo="$(parent)_Save" offsetX="-10"/>
+							<Dimensions x="36" y="36"/>
+
+							<Textures 
+								normal="TankHelper/icons/open_up.dds" 
+								pressed="TankHelper/icons/open_down.dds"
+								mouseOver="TankHelper/icons/open_over.dds" 
+								disabled="TankHelper/icons/open_disabled.dds"
+							/>
+							
+						</Button>
+
+					</Controls>
+
+				</Control>
+
+				<!-- NAVIGATION BUTTONS ( PREVIOUS , NEXT ) -->
+				<Control name="$(parent)_NavigationBottom" tier="HIGH" >
+					<Anchor point="TOPRIGHT" relativePoint="BOTTOMRIGHT" relativeTo="$(parent)_NavigationTop"/>
+					<Dimensions x="100" y="48"/>
+			
+					<Controls>
+
+						<Button name="$(parent)_Next" verticalAlignment="CENTER">
+							<Anchor point="RIGHT" offsetX="-10"/>
+							<Dimensions x="36" y="36"/>
+							<ButtonState state="DISABLED"/>
+
+							<Textures 
+								normal="TankHelper/icons/arrow_right_up.dds" 
+								pressed="TankHelper/icons/arrow_right_down.dds" 
+								mouseOver="TankHelper/icons/arrow_right_over.dds" 
+								disabled="TankHelper/icons/arrow_right_disabled.dds"
+							/>
+
+							<OnClicked>
+								TankHelper.NextCombatLog()
+							</OnClicked>
+							
+						</Button>
+
+						<Button name="$(parent)_Previous" verticalAlignment="CENTER">
+							<Anchor point="RIGHT" relativePoint="LEFT" relativeTo="$(parent)_Next" offsetX="-10"/>
+							<Dimensions x="36" y="36"/>
+							<ButtonState state="DISABLED"/>
+
+							<Textures 
+								normal="TankHelper/icons/arrow_left_up.dds" 
+								pressed="TankHelper/icons/arrow_left_down.dds" 
+								mouseOver="TankHelper/icons/arrow_left_over.dds" 
+								disabled="TankHelper/icons/arrow_left_disabled.dds"
+							/>
+							
+							<OnClicked>
+								TankHelper.PreviousCombatLog()
+							</OnClicked>
+
+						</Button>
+
+					</Controls>
+
+				</Control>
+
+			</Controls>
+
+		</TopLevelControl>
+
+							
+    </Controls>
+</GuiXml>
